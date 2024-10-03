@@ -1663,7 +1663,7 @@ textarea:focus {
 }
 
 .default-btn:hover {
-  background-color: rgb(22, 234, 90);
+  background-color: #00C333;
   color: #fff;
 }
 
@@ -4307,7 +4307,7 @@ textarea:focus {
 }
 
 .admission-title .apply-btn a.default-btn:hover {
-  background-color: #333;
+  background-color: #00C333;
   color: #fff;
 }
 
@@ -4366,7 +4366,9 @@ textarea:focus {
   width: 100%;
   height: 779px;
   content: "";
-  background-image: url(../img/bg/bg-5.jpg);
+  /* background-image: url(../img/home/1727083704.jpg); */
+  background-color: #0C53A3;
+  
 }
 
 .course-slider-active-2.nav-style-1.owl-carousel>.owl-nav button {
@@ -4396,7 +4398,7 @@ textarea:focus {
 }
 
 .view-all a.default-btn:hover {
-  background-color: #333;
+  background-color: #00C333;
   color: #fff;
 }
 
