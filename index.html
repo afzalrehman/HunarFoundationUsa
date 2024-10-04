@@ -24,54 +24,163 @@
     <!-- Modernizer JS -->
     <script src="assets/js/vendor/modernizr-3.11.7.min.js"></script>
     <style>
+        /* ----------popup */
+        .kode-causes-thumb img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .gallery-thumb img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            position: relative;
+            width: 25%;
+            box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+            animation: slideDown 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .popup-image {
+            max-width: 100%;
+            height: auto;
+            margin: 0px 0;
+            border-radius: 10px;
+            border: 2px solid #034EA2;
+        }
+
+        .popup-btn {
+            background-color: #034EA2;
+            color: #fff;
+            border: none;
+            /* padding: 15px 30px; */
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .popup-btn:hover {
+            background-color: #45a049;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: white;
+            background-color: #00C333;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+        }
+
+        .popup h2 {
+            font-size: 28px;
+            color: #034EA2;
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
         .donation-card {
-    /* background-color: #ffffff; */
-    color: #004aa3;
-    padding: 20px;
-    border-radius: 10px;
-    /* text-align: center; */
-    /* margin-bottom: 30px; */
-    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
-    color: white !important;
-}
+            /* background-color: #ffffff; */
+            color: #004aa3;
+            padding: 20px;
+            border-radius: 10px;
+            /* text-align: center; */
+            /* margin-bottom: 30px; */
+            /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+            color: white !important;
+        }
 
-.donation-card h3 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #00c333;
-}
+        .donation-card h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #00c333;
+        }
 
-.donation-card p {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: white;
-}
+        .donation-card p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: white;
+        }
 
-.donate-btn {
-    display: inline-block;
-    /* padding: 10px 20px; */
-    /* background-color: #ff6b6b; */
-    color: #ffffff;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    /* margin-top: 15px; */
-    color: white;
-}
+        .donate-btn {
+            display: inline-block;
+            /* padding: 10px 20px; */
+            /* background-color: #ff6b6b; */
+            color: #ffffff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            /* margin-top: 15px; */
+            color: white;
+        }
 
-.donate-btn:hover {
-    /* background-color: #ff4b4b; */
-    color: #00c333;
-}
+        .donate-btn:hover {
+            /* background-color: #ff4b4b; */
+            color: #00c333;
+        }
 
-@media only screen and (max-width: 768px) {
-    .donation-card {
-        margin-bottom: 20px;
-    }
-}
-
+        @media only screen and (max-width: 768px) {
+            .donation-card {
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -1027,7 +1136,7 @@
                 <h2><span>Donation </span>Methods</h2>
                 <p>Support our cause by donating through various methods. Every contribution makes a difference!</p>
             </div>
-            
+
             <!-- Donation Methods Cards -->
             <div class="row">
                 <!-- Email Donation -->
@@ -1039,8 +1148,8 @@
                         <p><strong>Phone:</strong> +92 21 12345678</p>
                     </div>
                 </div>
-                
-                
+
+
                 <!-- Bank Transfer -->
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                     <div class="donation-card">
@@ -1050,7 +1159,7 @@
                         <p>IBAN: PK00 ABCD 1234 5678 9101</p>
                     </div>
                 </div>
-                
+
                 <!-- Online Payment with Donate Button -->
                 <div class="col-xl-4 col-lg-3 col-md-6 col-sm-6">
                     <div class="donation-card">
@@ -1060,7 +1169,7 @@
                         <a href="donation-page.html" class="donate-btn">Donate Now</a>
                     </div>
                 </div>
-                
+
                 <!-- Cash Donation -->
                 <div class="col-xl-2 col-lg-3 col-md-6 col-sm-6">
                     <div class="donation-card">
@@ -1071,8 +1180,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
 
 
     <div class="teacher-area pt-130 pb-100">
@@ -1088,7 +1197,7 @@
                         <div class="teacher-img">
                             <img src="assets/img/teacher/teacher-1.webp" alt="">
                         </div>
-                        
+
                         <div class="teacher-content-wrap">
                             <div class="teacher-content">
                                 <h4>Fawd Khan</h4>
@@ -1111,7 +1220,7 @@
                         <div class="teacher-img">
                             <img src="assets/img/teacher/teacher-2.webp" alt="">
                         </div>
-                        
+
                         <div class="teacher-content-wrap">
                             <div class="teacher-content">
                                 <h4>Fawd Khan</h4>
@@ -1134,7 +1243,7 @@
                         <div class="teacher-img">
                             <img src="assets/img/teacher/teacher-3.webp" alt="">
                         </div>
-                        
+
                         <div class="teacher-content-wrap">
                             <div class="teacher-content">
                                 <h4>Fawd Khan</h4>
@@ -1157,7 +1266,7 @@
                         <div class="teacher-img">
                             <img src="assets/img/teacher/teacher-4.webp" alt="">
                         </div>
-                      
+
                         <div class="teacher-content-wrap">
                             <div class="teacher-content">
                                 <h4>Fawd Khan</h4>
@@ -1180,7 +1289,7 @@
                         <div class="teacher-img">
                             <img src="assets/img/teacher/teacher-5.webp" alt="">
                         </div>
-                        
+
                         <div class="teacher-content-wrap">
                             <div class="teacher-content">
                                 <h4>Fawd Khan</h4>
@@ -1199,13 +1308,13 @@
                     </div>
                 </div>
 
-                
-                
+
+
             </div>
             <div class="view-all text-center mt-20"></div>
-                <a class="default-btn" href="course.html">VIEW ALL</a>
-            </div>
+            <a class="default-btn" href="course.html">VIEW ALL</a>
         </div>
+    </div>
     </div>
 
 
@@ -1774,7 +1883,15 @@
     </footer>
 
 
-
+    <!-- ------------popupe  -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <a href="http://localhost:8000/donate-online">
+                <img src="assets/img/home/popup.jpg" alt="Popup Image" loading="lazy" class="popup-image">
+            </a>
+        </div>
+    </div>
 
 
 
@@ -1812,8 +1929,16 @@
 
     </script>
 
+    <script>
+        window.onload = function () {
+            document.getElementById('popup').style.display = 'flex';
+        };
 
-  
+        document.getElementById('closePopup').onclick = function () {
+            document.getElementById('popup').style.display = 'none';
+        };
+    </script>
+
 </body>
 
 </html>
